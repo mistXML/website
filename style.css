@@ -46,8 +46,8 @@ body {
     border-radius: 5px 0px 0px 0px;
     height: 60em;
     min-width: 65em;
-    left: 1000px;
-    top: 20px;
+    left: 5px;
+    bottom: 20px;
     position: absolute;
 }
 
@@ -62,8 +62,8 @@ body {
     min-width: 30em;
     flex: 1 1 40%;
     position: absolute;
-    right: 1250px;
-    bottom: 20px;
+    bottom: 25px;
+    right: 12px;
 }
 
 .left h1, .right h1 {
