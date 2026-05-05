@@ -4,7 +4,7 @@
 }
 
 body {
-    background:  linear-gradient(#00000099, #00000099), url("/assets/stars.gif") repeat;
+    background: linear-gradient(#00000099, #00000099), url("/assets/stars.gif") repeat;
 }
 
 .top {
@@ -24,88 +24,50 @@ body {
   }
 }
 
-.box {
-  display: flex;
-  align-items: normal;
-  justify-content: center;
+body {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
 }
 
-.box .left, .box .right {
-  width: 90px;
-  background-color: rgb(37, 34, 57, 0.75);
-  border: 2px solid rgb(104, 8, 229);
-  border-radius: 5px;
-  padding: 0px;
-  color: rgb(30, 28, 28);
+#terminal {
+    background-color: rgba(45, 0, 235, 0.15);
+    flex: 1;
+    min-height: 400px;
+    min-width: 500px;
+    padding: 15px;
+    margin: 20px;
 }
 
-.left {
-    flex: 1 1 40%;
-    margin-left: 45px;
-    margin-right: 5px;
-    border-radius: 5px 0px 0px 0px;
-    height: 60em;
-    min-width: 65em;
-    left: 5px;
-    bottom: 20px;
-    position: absolute;
+#info {
+    font-weight: bold;
 }
 
-.left img {
-    float: right;
-    padding: 20px;
-    margin-right: 10%;
+#cmd {
+    flex:1 1 auto;
+    padding:0;
+    margin:0;
+    display:inline-block;
+    border:none!important;
+    background-color:transparent;
+    color:inherit;
+    outline:none;
 }
 
-.right {
-    height: 42em;
-    min-width: 30em;
-    flex: 1 1 40%;
-    position: absolute;
-    bottom: 25px;
-    right: 12px;
-}
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99999;
 
-.left h1, .right h1 {
-    color: rgb(106, 75, 208);
-    border-bottom: 2px solid rgb(104, 8, 229);
-    margin: 5px 0px;
-    padding: 10px;
-    font-size: 20px;
-}
-
-.left h2, .left p, .right h2, .right p {
-    padding-left: 10px;
-}
-
-.right p {
-    margin-bottom: 70%;
-}
-
-.webrings {
-    display: flex; 
-    flex-flow: row wrap; 
-    justify-content: center; 
-    column-gap: 1px;
-    row-gap: 1px;
-}
-
-@media (max-width: 800px) {
-    .left {
-        position: static;
-        min-width: 30em;
-    }
-
-    .right {
-        position: static;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 45px;
-        min-width: 30em;
-    }
-
-    .box {
-        flex-direction: column;
-    }
-    
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.03) 0px,
+            rgba(255,255,255,0.03) 1px,
+            rgba(0,0,0,0.12) 10px,
+            rgba(0,0,0,0.12) 2px
+        );
 }

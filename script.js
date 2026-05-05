@@ -19,6 +19,3 @@ function makeDraggable(windowId, handleId) {
         win.style.top  = (e.clientY - offsetY) + "px";
     });
 }
-
-makeDraggable("right-window", "right-handle");
-makeDraggable("left-window", "left-handle");
