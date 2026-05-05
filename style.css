@@ -1,0 +1,83 @@
+* {
+    font-family: monospace;
+    color: rgb(106, 75, 208)
+}
+
+body {
+    background:  linear-gradient(#00000099, #00000099), url("/assets/stars.gif") repeat;
+;
+}
+
+.top {
+    color: white;
+    text-align: center;
+    margin: 40px 0px;
+}
+
+.box {
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+}
+
+.box .left, .box .right {
+  width: 90px;
+  background-color: rgb(37, 34, 57, 0.75);
+  border: 2px solid rgb(104, 8, 229);
+  border-radius: 5px;
+  padding: 0px;
+  color: rgb(30, 28, 28);
+}
+
+.left {
+    flex: 1 1 40%;
+    margin-left: 45px;
+    margin-right: 5px;
+    border-radius: 5px 0px 0px 0px;
+    height: 60em;
+    min-width: 65em;
+    left: 1000px;
+    top: 20px;
+    position: absolute;
+}
+
+.left img {
+    float: right;
+    padding: 20px;
+    margin-right: 10%;
+}
+
+.right {
+    height: 40em;
+    min-width: 30em;
+    flex: 1 1 40%;
+    position: absolute;
+    right: 1250px;
+    bottom: 20px;
+}
+
+.left h1, .right h1 {
+    color: rgb(106, 75, 208);
+    border-bottom: 2px solid rgb(104, 8, 229);
+    margin: 5px 0px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.left h2, .left p, .right h2, .right p {
+    padding-left: 10px;
+}
+
+.right p {
+    margin-bottom: 70%;
+}
+
+.webrings {
+    display: flex; 
+    flex-flow: row wrap; 
+    justify-content: center; 
+    column-gap: 1px;
+    row-gap: 1px;
+}
+
+
