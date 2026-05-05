@@ -90,7 +90,7 @@ body {
     row-gap: 1px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
     .left {
         position: static;
         min-width: 30em;
