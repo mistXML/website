@@ -58,7 +58,7 @@ body {
 }
 
 .right {
-    height: 40em;
+    height: 42em;
     min-width: 30em;
     flex: 1 1 40%;
     position: absolute;
