@@ -5,13 +5,23 @@
 
 body {
     background:  linear-gradient(#00000099, #00000099), url("/assets/stars.gif") repeat;
-;
 }
 
 .top {
     color: white;
     text-align: center;
     margin: 40px 0px;
+    animation: wobbly 3s ease-in-out infinite alternate;
+
+}
+
+@keyframes wobbly {
+  50% {
+    transform: skew(10deg);
+  }
+  100% {
+    transform: skew(-10deg);
+  }
 }
 
 .box {

@@ -20,5 +20,5 @@ function makeDraggable(windowId, handleId) {
     });
 }
 
-makeDraggable("r-window", "handle");
-makeDraggable("l-window", "another-handle");
+makeDraggable("right-window", "right-handle");
+makeDraggable("left-window", "left-handle");
