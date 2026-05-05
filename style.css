@@ -1,6 +1,18 @@
 * {
-    font-family: monospace;
+    font-family: CozetteVector; 
+    font-weight: 200;
     color: rgb(106, 75, 208)
+}
+
+:root {
+    --wobble: 10deg;
+    --wobble-alt: -10deg;
+}
+
+@font-face {
+    font-family: CozetteVector;
+    src:url(assets/CozetteVector.ttf) format("truetype");
+
 }
 
 body {
@@ -17,42 +29,45 @@ body {
 
 @keyframes wobbly {
   50% {
-    transform: skew(10deg);
+    transform: skew(var(--wobble));
   }
   100% {
-    transform: skew(-10deg);
+    transform: skew(var(--wobble-alt));
   }
 }
 
 body {
-    display: flex;
     align-items: center;
-    align-self: center;
+    display: flex;
     flex-direction: column;
 }
 
 #terminal {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(45, 0, 235, 0.15);
-    flex: 1;
+    flex: 1 25%;
     min-height: 400px;
     min-width: 500px;
+    max-width: 500px;
     padding: 15px;
     margin: 20px;
 }
 
 #info {
     font-weight: bold;
+    border-bottom: 2px dashed rgba(45, 10, 255, 0.5);
 }
 
 #cmd {
-    flex:1 1 auto;
-    padding:0;
-    margin:0;
-    display:inline-block;
-    border:none!important;
-    background-color:transparent;
-    color:inherit;
-    outline:none;
+    min-width: 65%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    border: none!important;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
 }
 
 body::after {

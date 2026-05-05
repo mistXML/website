@@ -19,3 +19,24 @@ function makeDraggable(windowId, handleId) {
         win.style.top  = (e.clientY - offsetY) + "px";
     });
 }
+
+let clicked = 0;
+
+function wobblyEdit() {
+    const title = document.getElementById("top");
+    let currentWobble = getComputedStyle(document.documentElement).getPropertyValue('--wobble');
+
+    // silly little extraction of number since it NEEDS to be a string n + 'deg' ...
+    currentWobble = Number(currentWobble.substring(0, currentWobble.indexOf('d')) * 1.05);
+
+    clicked++;
+
+    if (clicked == 10) {
+        myWindow = window.open("", "myWindow", "width=200, height=100").close();
+        clicked = 0;
+    }
+
+    document.documentElement.style.setProperty('--wobble', currentWobble + 'deg');
+
+    // if you find this, tell me 'artisan decorative roman mosaics'
+}
