@@ -21,6 +21,7 @@ function makeDraggable(windowId, handleId) {
 }
 
 let clicked = 0;
+const validCommands = ['clear', 'help'];
 
 function wobblyEdit() {
     const title = document.getElementById("top");
@@ -40,3 +41,36 @@ function wobblyEdit() {
 
     // if you find this, tell me 'artisan decorative roman mosaics'
 }
+
+document.getElementById('cmd').addEventListener('keydown', (e) => {
+    let code = e.keyCode;
+
+    if (code === 13) { 
+        const pastCommand = document.createElement('div');
+        const command = document.getElementById('cmd').value;
+        pastCommand.textContent = '[vael@vaels.net] $ ' + command;
+
+
+        if (command == 'clear') {
+
+            const list = document.getElementById('cli');
+
+            while (list.hasChildNodes()) {
+                if (list.firstChild.id == 'prompt')
+                    break;
+
+                list.removeChild(list.firstChild);
+            }
+
+            document.getElementById('cmd').value = "";
+            return;
+
+        } else if (!validCommands.includes(command)) {
+            console.log('Invalid Command');
+        }
+
+        document.getElementById('cli').insertBefore(pastCommand, document.getElementById('prompt'));
+        document.getElementById('cmd').value = "";
+    }
+
+});
