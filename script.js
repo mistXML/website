@@ -21,7 +21,8 @@ function makeDraggable(windowId, handleId) {
 }
 
 let clicked = 0;
-const validCommands = ['clear', 'help'];
+let history = [];
+let historyCount = 0;
 
 function wobblyEdit() {
     const title = document.getElementById("top");
@@ -45,32 +46,59 @@ function wobblyEdit() {
 document.getElementById('cmd').addEventListener('keydown', (e) => {
     let code = e.keyCode;
 
+    // we want stuff to happen when enter is pressed...
     if (code === 13) { 
         const pastCommand = document.createElement('div');
         const command = document.getElementById('cmd').value;
+        const result = document.createElement('div');
+        history.push(command);
+        historyCount = history.length;
+
         pastCommand.textContent = '[vael@vaels.net] $ ' + command;
 
+        switch (command) {
+            case 'clear':
+                const list = document.getElementById('cli');
 
-        if (command == 'clear') {
+                while (list.hasChildNodes()) {
+                    if (list.firstChild.id == 'prompt')
+                        break;
 
-            const list = document.getElementById('cli');
+                    list.removeChild(list.firstChild);
+                }
 
-            while (list.hasChildNodes()) {
-                if (list.firstChild.id == 'prompt')
-                    break;
+                document.getElementById('cmd').value = "";
+                return;
+            case "help":
+                result.textContent = 'clear';
+                break;
+            default:
+                result.textContent = 'vsh: command not found: ' + command;
 
-                list.removeChild(list.firstChild);
-            }
-
-            document.getElementById('cmd').value = "";
-            return;
-
-        } else if (!validCommands.includes(command)) {
-            console.log('Invalid Command');
         }
 
         document.getElementById('cli').insertBefore(pastCommand, document.getElementById('prompt'));
+        document.getElementById('cli').insertBefore(result, document.getElementById('prompt'));
         document.getElementById('cmd').value = "";
+    } else if (code === 38) {
+        e.preventDefault();
+        if (historyCount-1 < 0 || history.length == 0) {
+            return;
+        }
+
+        historyCount--;
+        console.log(historyCount);
+        document.getElementById('cmd').value = history[historyCount];
+        
+    } else if (code == 40) {
+        if (historyCount >= history.length || history.length == 0) {
+            document.getElementById('cmd').value = "";
+            return;
+        }
+
+        historyCount++;
+        console.log(historyCount);
+        document.getElementById('cmd').value = history[history.length - historyCount];
     }
 
 });
